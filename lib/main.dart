@@ -11,6 +11,12 @@ void main() {
   runApp(MyApp());
 }
 
+// Future <void> main() async{
+//   WidgetsFlutterBinding.ensureInitialized();
+//   cameras =await availableCameras();
+//   runApp(const MyApp(cameras: cameras));
+// }
+
 // void main() {
 //   var appConfig = AppConfig(
 //     appEnvironment: AppEnvironment.DEV,

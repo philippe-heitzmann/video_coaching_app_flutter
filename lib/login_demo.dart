@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:receivesharing/ui/home/home_screen.dart';
+import 'package:receivesharing/ui/home/home_panel.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -70,7 +71,7 @@ class _LoginDemoState extends State<LoginDemo> {
               child: FlatButton(
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                      context, MaterialPageRoute(builder: (_) => HomePanel()));
                 },
                 child: Text(
                   'Login',
