@@ -1,82 +1,56 @@
-// import 'package:camera/camera.dart';
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// Future<void> main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
+import 'package:receivesharing/ui/home/home_screen.dart';
+import 'package:receivesharing/ui/home/home_panel.dart';
+import 'package:receivesharing/ui/pages/camera_screen.dart';
 
-//   _cameras = await availableCameras();
-//   runApp(const CameraApp());
-// }
+class RecordVideo extends StatefulWidget {
+  @override
+  _RecordVideoState createState() => _RecordVideoState();
+}
 
-// /// CameraApp is the Main Application.
-// class CameraApp extends StatefulWidget {
-//   /// Default Constructor
-//   const CameraApp({Key? key}) : super(key: key);
-
-//   @override
-//   State<CameraApp> createState() => _CameraAppState();
-// }
-
-// class _CameraAppState extends State<CameraApp> {
-//   late List<CameraDescription> _cameras;
-//   late CameraController _controller;
-
-//   Future<void> setupCameras() async {
-//     try {
-//       _cameras = await availableCameras();
-//       _controller = new CameraController(_cameras[0], ResolutionPreset.ultraHigh);
-//       await _controller.initialize();
-//   }
-
-//   Widget build(BuildContext context) {
-//     return FutureBuilder(
-//       future: setupCameras(),
-//       builder: (BuildContext context, AsyncSnapshot snapshot) {
-//         return AspectRatio(
-//           aspectRatio: _controller.value.aspectRatio,
-//           child: CameraPreview(_controller)
-//         );
-//       };
-//     );
-//   }
-// }
-// }
-// //   @override
-// //   void initState() {
-// //     super.initState();
-// //     controller = CameraController(_cameras[0], ResolutionPreset.max);
-// //     controller.initialize().then((_) {
-// //       if (!mounted) {
-// //         return;
-// //       }
-// //       setState(() {});
-// //     }).catchError((Object e) {
-// //       if (e is CameraException) {
-// //         switch (e.code) {
-// //           case 'CameraAccessDenied':
-// //             print('User denied camera access.');
-// //             break;
-// //           default:
-// //             print('Handle other errors.');
-// //             break;
-// //         }
-// //       }
-// //     });
-// //   }
-
-// //   @override
-// //   void dispose() {
-// //     controller.dispose();
-// //     super.dispose();
-// //   }
-
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     if (!controller.value.isInitialized) {
-// //       return Container();
-// //     }
-// //     return MaterialApp(
-// //       home: CameraPreview(controller),
-// //     );
-// //   }
-// // }
+class _RecordVideoState extends State<RecordVideo> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Center(
+                child: Container(
+                    width: 200,
+                    height: 150,
+                    /*decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(50.0)),*/
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 400,
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: FlatButton(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (_) => CameraScreen()));
+                },
+                child: Text(
+                  'Start Recording New Video',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 130,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

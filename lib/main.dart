@@ -6,8 +6,22 @@ import 'package:receivesharing/my_app.dart';
 //Setting up multiple dev, staging, prod environments
 // https://medium.com/flutter-community/add-multiple-targets-in-flutter-apps-vs-code-android-studio-efe7e588e0cd
 
+import 'package:camera/camera.dart';
 
-void main() {
+List<CameraDescription> cameras = [];
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+Future<void> main() async {
+  // Fetch the available cameras before initializing the app.
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error in fetching the cameras: $e');
+  }
   runApp(MyApp());
 }
 

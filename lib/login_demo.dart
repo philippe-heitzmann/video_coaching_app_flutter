@@ -71,7 +71,7 @@ class _LoginDemoState extends State<LoginDemo> {
               child: FlatButton(
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePanel()));
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
                 },
                 child: Text(
                   'Login',

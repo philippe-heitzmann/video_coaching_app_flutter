@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CameraPage(), //LoginDemo()
+      home: LoginDemo(), //CameraPage()
     );
   }
 }
